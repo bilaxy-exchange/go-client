@@ -11,15 +11,15 @@ type Transaction struct {
 	Address       string            `json:"address,omitempty"`
 	Id            string            `json:"id,omitempty"`
 	BlockId       string            `json:"blockId,omitempty"`
-	Type          byte              `json:"type,omitempty"`
+	Type          int              `json:"type,omitempty"`
 	Amount        string             `json:"amount,omitempty"`
-	Fee           int64             `json:"fee,omitempty"`
+	Fee           string             `json:"fee,omitempty"`
 	Sender        string            `json:"sender,omitempty"`
 	Recipient     string            `json:"recipient,omitempty"`
 	Signature     string            `json:"signature,omitempty"`
 	VendorField   string            `json:"vendorField,omitempty"`
 	Asset         *TransactionAsset `json:"asset,omitempty"`
-	Confirmations uint16            `json:"confirmations,omitempty"`
+	Confirmations int64            `json:"confirmations,omitempty"`
 	Timestamp     Timestamp         `json:"timestamp,omitempty"`
 }
 

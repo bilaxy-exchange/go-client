@@ -207,8 +207,8 @@ func TestBlocksService_Transactions(t *testing.T) {
 			      "id": "dummy",
 			      "blockId": "dummy",
 			      "type": 0,
-			      "amount": 10000000,
-			      "fee": 10000000,
+			      "amount": "10000000",
+			      "fee": "10000000",
 			      "sender": "dummy",
 			      "recipient": "dummy",
 			      "signature": "dummy",
@@ -224,7 +224,7 @@ func TestBlocksService_Transactions(t *testing.T) {
 			}`)
 	})
 
-	query := &Pagination{Limit: 1}
+	query := map[string]interface{}{"limit": 1}
 	responseStruct, response, err := client.Blocks.Transactions(context.Background(), 10, query)
 	testGeneralError(t, "Blocks.Transactions", err)
 	testResponseUrl(t, "Blocks.Transactions", response, "/api/blocks/10/transactions")
@@ -243,8 +243,8 @@ func TestBlocksService_Transactions(t *testing.T) {
 			Id:            "dummy",
 			BlockId:       "dummy",
 			Type:          0,
-			Amount:        10000000,
-			Fee:           10000000,
+			Amount:        "10000000",
+			Fee:           "10000000",
 			Sender:        "dummy",
 			Recipient:     "dummy",
 			Signature:     "dummy",

@@ -44,7 +44,7 @@ func (s *BlocksService) Get(ctx context.Context, id int) (*GetBlock, *http.Respo
 }
 
 // Get all transactions by the given block.
-func (s *BlocksService) Transactions(ctx context.Context, id int, query *Pagination) (*GetBlockTransactions, *http.Response, error) {
+func (s *BlocksService) Transactions(ctx context.Context, id int, query map[string]interface{}) (*GetBlockTransactions, *http.Response, error) {
 	uri := fmt.Sprintf("blocks/%v/transactions", id)
 
 	var responseStruct *GetBlockTransactions
