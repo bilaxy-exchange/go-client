@@ -12,7 +12,7 @@ type Transaction struct {
 	Id            string            `json:"id,omitempty"`
 	BlockId       string            `json:"blockId,omitempty"`
 	Type          byte              `json:"type,omitempty"`
-	Amount        int64             `json:"amount,omitempty"`
+	Amount        string             `json:"amount,omitempty"`
 	Fee           int64             `json:"fee,omitempty"`
 	Sender        string            `json:"sender,omitempty"`
 	Recipient     string            `json:"recipient,omitempty"`

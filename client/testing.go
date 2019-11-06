@@ -47,7 +47,7 @@ func setupTest() (client *Client, mux *http.ServeMux, serverURL string, teardown
 
 	// client is the Ark client being tested and is
 	// configured to use test server.
-	client = NewClient(nil)
+	client = NewClient(nil, "")
 	url, _ := url.Parse(server.URL + baseURLPath + "/")
 	client.BaseURL = url
 
