@@ -1,4 +1,4 @@
-module client
+module github.com/bilaxy-exchange/go-client
 
 go 1.13
 
