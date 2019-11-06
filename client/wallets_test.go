@@ -37,7 +37,7 @@ func TestWalletsService_List(t *testing.T) {
 			    {
 			      "address": "dummy",
 			      "publicKey": "dummy",
-			      "balance": 1000000000,
+			      "balance": "1000000000",
 			      "isDelegate": false
 			    }
 			  ]
@@ -62,7 +62,7 @@ func TestWalletsService_List(t *testing.T) {
 		Data: []Wallet{{
 			Address:    "dummy",
 			PublicKey:  "dummy",
-			Balance:    1000000000,
+			Balance:    "1000000000",
 			IsDelegate: false,
 		}},
 	})
@@ -91,7 +91,7 @@ func TestWalletsService_Top(t *testing.T) {
 			    {
 			      "address": "dummy",
 			      "publicKey": "dummy",
-			      "balance": 1000000000,
+			      "balance": "1000000000",
 			      "isDelegate": false
 			    }
 			  ]
@@ -116,7 +116,7 @@ func TestWalletsService_Top(t *testing.T) {
 		Data: []Wallet{{
 			Address:    "dummy",
 			PublicKey:  "dummy",
-			Balance:    1000000000,
+			Balance:    "1000000000",
 			IsDelegate: false,
 		}},
 	})
@@ -134,7 +134,7 @@ func TestWalletsService_Get(t *testing.T) {
 			  "data": {
 			    "address": "dummy",
 			    "publicKey": "dummy",
-			    "balance": 1000000000,
+			    "balance": "1000000000",
 			    "isDelegate": false
 			  }
 			}`)
@@ -147,7 +147,7 @@ func TestWalletsService_Get(t *testing.T) {
 		Data: Wallet{
 			Address:    "dummy",
 			PublicKey:  "dummy",
-			Balance:    1000000000,
+			Balance:    "1000000000",
 			IsDelegate: false,
 		},
 	})
@@ -488,7 +488,7 @@ func TestWalletsService_Search(t *testing.T) {
 			    {
 			      "address": "dummy",
 			      "publicKey": "dummy",
-			      "balance": 1000000000,
+			      "balance": "1000000000",
 			      "isDelegate": false
 			    }
 			  ]
@@ -514,7 +514,7 @@ func TestWalletsService_Search(t *testing.T) {
 		Data: []Wallet{{
 			Address:    "dummy",
 			PublicKey:  "dummy",
-			Balance:    1000000000,
+			Balance:    "1000000000",
 			IsDelegate: false,
 		}},
 	})

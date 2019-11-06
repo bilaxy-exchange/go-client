@@ -306,7 +306,7 @@ func TestDelegatesService_Voters(t *testing.T) {
 			    {
 			      "address": "dummy",
 			      "publicKey": "dummy",
-			      "balance": 100000000,
+			      "balance": "1000000000",
 			      "isDelegate": false
 			    }
 			  ]
@@ -331,7 +331,7 @@ func TestDelegatesService_Voters(t *testing.T) {
 		Data: []Wallet{{
 			Address:    "dummy",
 			PublicKey:  "dummy",
-			Balance:    100000000,
+			Balance:    "1000000000",
 			IsDelegate: false,
 		}},
 	})
