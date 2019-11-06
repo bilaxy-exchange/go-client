@@ -149,7 +149,7 @@ func TestBlocksService_Get(t *testing.T) {
 			}`)
 	})
 
-	responseStruct, response, err := client.Blocks.Get(context.Background(), 10)
+	responseStruct, response, err := client.Blocks.Get(context.Background(), "", 10)
 	testGeneralError(t, "Blocks.Get", err)
 	testResponseUrl(t, "Blocks.Get", response, "/blocks/10")
 	testResponseStruct(t, "Blocks.Get", responseStruct, &GetBlock{

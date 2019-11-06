@@ -30,8 +30,15 @@ func (s *BlocksService) List(ctx context.Context, query *Pagination) (*Blocks, *
 }
 
 // Get a block by the given id.
-func (s *BlocksService) Get(ctx context.Context, id int) (*GetBlock, *http.Response, error) {
-	uri := fmt.Sprintf("blocks/%v", id)
+func (s *BlocksService) Get(ctx context.Context, id string, height int64) (*GetBlock, *http.Response, error) {
+	uri := ""
+	if id != "" {
+		uri = fmt.Sprintf("blocks/%v", id)
+	}else if height != 0 {
+		uri = fmt.Sprintf("blocks/%d", height)
+	}else{
+		return nil, nil, fmt.Errorf("id or height required")
+	}
 
 	var responseStruct *GetBlock
 	resp, err := s.client.SendRequest(ctx, "GET", uri, nil, nil, &responseStruct)
