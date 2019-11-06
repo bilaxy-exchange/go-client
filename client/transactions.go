@@ -30,7 +30,7 @@ func (s *TransactionsService) List(ctx context.Context, query *Pagination) (*Tra
 }
 
 // Create a new transaction.
-func (s *TransactionsService) Create(ctx context.Context, body *CreateTransactionRequest) (*CreateTransaction, *http.Response, error) {
+func (s *TransactionsService) Create(ctx context.Context, body interface{}) (*CreateTransaction, *http.Response, error) {
 	var responseStruct *CreateTransaction
 	resp, err := s.client.SendRequest(ctx, "POST", "transactions", nil, body, &responseStruct)
 
