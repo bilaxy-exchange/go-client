@@ -12,6 +12,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+
+	//"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -21,7 +23,7 @@ import (
 )
 
 const (
-	defaultBaseURL = "https://dexplorer.ark.io:8443/api/"
+	defaultBaseURL = "https://dexplorer.ark.io:8443/api/v2/"
 )
 
 type Client struct {
@@ -44,12 +46,15 @@ type Service struct {
 	client *Client
 }
 
-func NewClient(httpClient *http.Client) *Client {
+func NewClient(httpClient *http.Client, baseUrl string) *Client {
 	if httpClient == nil {
 		httpClient = http.DefaultClient
 	}
+	if baseUrl == "" {
+		baseUrl = defaultBaseURL
+	}
 
-	baseURL, _ := url.Parse(defaultBaseURL)
+	baseURL, _ := url.Parse(baseUrl)
 
 	c := &Client{client: httpClient, BaseURL: baseURL}
 	c.common.client = c
