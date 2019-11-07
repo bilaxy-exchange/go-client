@@ -84,8 +84,8 @@ func (c *Client) SendRequest(ctx context.Context, method string, urlStr string, 
 	var buf io.ReadWriter
 	if body != nil {
 		if method == "POST" {
-			json, _ := json.Marshal(body)
-			buf = bytes.NewBuffer(json)
+			jsonBody, _ := json.Marshal(body)
+			buf = bytes.NewBuffer(jsonBody)
 		}
 	}
 
@@ -108,6 +108,7 @@ func (c *Client) SendRequest(ctx context.Context, method string, urlStr string, 
 	}
 
 	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("API-Version", "2")
 
 	// Execute the previously created HTTP request
 	resp, err := c.client.Do(req)
@@ -120,8 +121,8 @@ func (c *Client) SendRequest(ctx context.Context, method string, urlStr string, 
 		}
 
 		if e, ok := err.(*url.Error); ok {
-			if url, err := url.Parse(e.URL); err == nil {
-				e.URL = url.String()
+			if urlObj, err := url.Parse(e.URL); err == nil {
+				e.URL = urlObj.String()
 				return nil, e
 			}
 		}
@@ -144,7 +145,9 @@ func (c *Client) SendRequest(ctx context.Context, method string, urlStr string, 
 		}
 	}
 
-	defer resp.Body.Close()
+	defer func() {
+		_ = resp.Body.Close()
+	}()
 
 	return resp, err
 }
